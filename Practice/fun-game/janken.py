@@ -12,6 +12,8 @@ print(
     sep="\n"
 )
 
+E = 0
+
 def yourwin():
     if Y == 1:
         E = 2
@@ -21,10 +23,15 @@ def yourwin():
         E = 1
 
 def yourlose():
-    print()
+    if Y == 1:
+        E = 3
+    elif Y == 2:
+        E = 1
+    elif Y == 3:
+        E = 2
 
 def yourdraw():
-    print()
+    E = Y
 
 def random():
     print()
@@ -32,25 +39,58 @@ def random():
 def pon():
     if Y == 1:
         if E == 1:
-            
+            print(
+                
+                
+            )
         elif E == 2:
-            
+            print(
+                
+                
+            )
         elif E == 3:
-            
+            print(
+                
+                
+            )
+        else:
+            print("例外")
     elif Y == 2:
         if E == 1:
-            
+            print(
+                
+                
+            )
         elif E == 2:
-            
+            print(
+                
+                
+            )
         elif E == 3:
-            
+            print(
+                
+                
+            )
+        else:
+            print("例外")
     elif Y == 2:
         if E == 1:
-            
+            print(
+                
+                
+            )
         elif E == 2:
-            
+            print(
+                
+                
+            )
         elif E == 3:
-            
+            print(
+                
+                
+            )
+        else:
+            print("例外")
     else:
         print("例外")
 
