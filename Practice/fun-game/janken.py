@@ -1,7 +1,4 @@
-try:
-    Y = int(input())
-except ValueError:
-    print("無効な数です。")
+
 
 print(
     "japanise janken - python script",
@@ -13,6 +10,13 @@ print(
 )
 
 E = 0
+Y = 0
+
+try:
+    Y = int(input())
+except ValueError:
+    print("無効な数です。")
+
 
 def yourwin():
     if Y == 1:
@@ -40,8 +44,10 @@ def pon():
     if Y == 1:
         if E == 1:
             print(
-                
-                
+                "",
+                "",
+                "",
+                sep="\n"
             )
         elif E == 2:
             print(
