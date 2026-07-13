@@ -1,3 +1,13 @@
+Y = int(input())
+
+print(
+    "japanise janken - python script",
+    "Select a number from the options below",
+    "1 - gu",
+    "2 - tyoki",
+    "3 - pa",
+    sep="\n"
+)
 
 def yourwin():
     print("a")
