@@ -1,4 +1,4 @@
-import random
+import random, time
 
 won = 0
 lose = 0
@@ -30,21 +30,25 @@ while True:
         break
     
     # random
-    E = random.randrange(1, 3)
+    E = random.randrange(1, 4)
     
     # 判定
-    if Y == E:
-        print("== draw ==")
-        draw += 1
-        H = "draw"
-    elif Y == 1 and E == 2 or Y == 2 and E == 3 or Y == 3 and E == 1:
-        print("== Your won ==")
-        won += 1
-        H = "won"
+    if 1 <= Y <= 3:
+        if Y == E:
+            print("== draw ==")
+            draw += 1
+            H = "draw"
+        elif Y == 1 and E == 2 or Y == 2 and E == 3 or Y == 3 and E == 1:
+            print("== Your won ==")
+            won += 1
+            H = "won"
+        else:
+            print("== Enemy won ==")
+            lose += 1
+            H = "lose"
     else:
-        print("== Enemy won ==")
-        lose += 1
-        H = "lose"
+        print("例外")
+        continue
         
     if Y == 1:
         Y = "gu"
@@ -70,3 +74,4 @@ while True:
         " draw  - ", draw, "\n",
         sep=""
     )
+    time.sleep(1.5)
