@@ -1,5 +1,3 @@
-
-
 print(
     "japanise janken - python script",
     "Select a number from the options below",
@@ -18,7 +16,7 @@ except ValueError:
     print("無効な数です。")
 
 
-def yourwin():
+def yourwon():
     if Y == 1:
         E = 2
     elif Y == 2:
@@ -42,23 +40,30 @@ def random():
     
 def pon():
     if Y == 1:
+        print(
+            "your  - gu",
+        )
         if E == 1:
             print(
-                "",
-                "",
-                "",
+                "Enemy - gu",
+                " draw ",
                 sep="\n"
             )
+            draw += 1
         elif E == 2:
             print(
-                
-                
+                "Enemy - tyoki",
+                " your won ",
+                sep="\n"
             )
+            won += 1
         elif E == 3:
             print(
-                
-                
+                "Enemy - pa",
+                " Enemy won ",
+                sep="\n"
             )
+            lose += 1
         else:
             print("例外")
     elif Y == 2:
@@ -101,7 +106,7 @@ def pon():
         print("例外")
 
 if __name__ == "__main__":
-    yourwin()
+    yourwon()
     #yourlose()
     #yourdraw()
     #random()
