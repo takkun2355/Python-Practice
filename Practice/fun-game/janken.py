@@ -1,112 +1,92 @@
-print(
-    "japanise janken - python script",
-    "Select a number from the options below",
-    "1 - gu",
-    "2 - tyoki",
-    "3 - pa",
-    sep="\n"
-)
+while True:
+    print(
+        "japanise janken - python script",
+        "Select a number from the options below",
+        "1 - gu",
+        "2 - tyoki",
+        "3 - pa",
+        sep="\n"
+    )
 
-E = 0
-Y = 0
+    E = 0
+    Y = 0
 
-try:
-    Y = int(input())
-except ValueError:
-    print("無効な数です。")
-
-
-def yourwon():
-    if Y == 1:
-        E = 2
-    elif Y == 2:
-        E = 3
-    elif Y == 3:
-        E = 1
-
-def yourlose():
-    if Y == 1:
-        E = 3
-    elif Y == 2:
-        E = 1
-    elif Y == 3:
-        E = 2
-
-def yourdraw():
-    E = Y
-
-def random():
-    print()
+    try:
+        Y = int(input("Enter 3817 to exit >"))
+    except ValueError:
+        print("無効な数です。\n")
+        continue
+        
+    if Y == 3817:
+        break
     
-def pon():
-    if Y == 1:
-        print(
-            "your  - gu",
-        )
-        if E == 1:
-            print(
-                "Enemy - gu",
-                " draw ",
-                sep="\n"
-            )
+    def pon():
+        if Y == E:
+            print("== draw ==")
             draw += 1
-        elif E == 2:
-            print(
-                "Enemy - tyoki",
-                " your won ",
-                sep="\n"
-            )
+            H = "draw"
+        if Y == 1 and E == 2 or Y == 2 and E == 3 or Y == 3 and E == 1:
+            print("== Your won ==")
             won += 1
-        elif E == 3:
-            print(
-                "Enemy - pa",
-                " Enemy won ",
-                sep="\n"
-            )
+            H = "won"
+        else:
+            print("== Enemy won ==")
             lose += 1
+            H = "lose"
+            
+        if Y == 1:
+            Y = "gu"
+        elif Y == 2:
+            Y = "tyoki"
         else:
-            print("例外")
-    elif Y == 2:
-        if E == 1:
-            print(
-                
-                
-            )
+            Y = "pa"
+        
+        if E == 3:
+            E = "pa"
         elif E == 2:
-            print(
-                
-                
-            )
-        elif E == 3:
-            print(
-                
-                
-            )
+            E = "tyoki"
         else:
-            print("例外")
-    elif Y == 2:
-        if E == 1:
-            print(
-                
-                
-            )
-        elif E == 2:
-            print(
-                
-                
-            )
-        elif E == 3:
-            print(
-                
-                
-            )
-        else:
-            print("例外")
-    else:
-        print("例外")
+            E = "gu"
+        
+        print(
+            "Your  -", Y, "\n",
+            "Enemy -", E, "\n",
+            "\n",
+            "== Your match history ==",
+            "won   -", won, "\n",
+            "lose  -", lose, "\n",
+            "draw  -", draw, "\n",
+            sep=" "
+        )
 
-if __name__ == "__main__":
-    yourwon()
-    #yourlose()
-    #yourdraw()
-    #random()
+    def yourwon():
+        if Y == 1:
+            E = 2
+        elif Y == 2:
+            E = 3
+        elif Y == 3:
+            E = 1
+        pon()
+
+    def yourlose():
+        if Y == 1:
+            E = 3
+        elif Y == 2:
+            E = 1
+        elif Y == 3:
+            E = 2
+        pon()
+
+    def yourdraw():
+        E = Y
+        pon()
+
+    def random():
+        print()
+        pon()
+
+    if __name__ == "__main__":
+        yourwon()
+        #yourlose()
+        #yourdraw()
+        #random()
