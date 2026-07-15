@@ -1,5 +1,8 @@
 import random, time
 
+# 代入
+E = 0
+Y = 0
 won = 0
 lose = 0
 draw = 0
@@ -14,10 +17,6 @@ while True:
         sep="\n"
     )
 
-    # 定義
-    E = 0
-    Y = 0
-
     # input
     try:
         Y = int(input("Enter 3817 to exit >"))
@@ -29,7 +28,7 @@ while True:
     if Y == 3817:
         break
     
-    # random
+    # randomでのenemyの出し手を作成
     E = random.randrange(1, 4)
     
     # 判定
@@ -47,7 +46,7 @@ while True:
             lose += 1
             H = "lose"
     else:
-        print("例外")
+        print("Exception Occurrence")
         continue
         
     if Y == 1:
