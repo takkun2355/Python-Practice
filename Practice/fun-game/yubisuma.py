@@ -1,6 +1,6 @@
 import questionary, random
 
-npc_list = ["npc1", "npc2", "npc3", "npc4", "npc5", "cancel"]
+npc_list = ["cancel", "npc1", "npc2", "npc3", "npc4", "npc5"]
 
 while True:
     npc = questionary.select(
@@ -12,14 +12,11 @@ while True:
         break
     
     while True:
-        npc_str = npc - "npc"
-        npc_int = int(npc_str)
-        A = 
-        B = 
-        C = 
+        npc_str = npc.removeprefix("npc")
+        A = ((int(npc_str) * 2) + 2)
+        #B = "random.randrange(0, (A+1)-B)を使うようにしたい"
+        C = 0
         
-        npc1 = random.randrange(A, (B+1)-C)
-        npc2 = 
-        npc3 = 
-        npc4 = 
-        npc5 = 
+        npc1 = npc2 = npc3 = npc4 = npc5 = random.randrange(0, (A+1))
+        
+        
