@@ -42,14 +42,14 @@ while True:
                 )
                 
             NpcT1 = NpcT2 = NpcT3 = NpcT4 = NpcT5 = random.randrange(0, (A+1))
-            NpcHand1 = random.randrange(0, (A+1))
-            NpcHand2 = random.randrange(0, (A+1))
-            NpcHand3 = random.randrange(0, (A+1))
-            NpcHand4 = random.randrange(0, (A+1))
-            NpcHand5 = random.randrange(0, (A+1))
+            NpcHand1 = random.randrange(0, (Npc1_hands+1))
+            NpcHand2 = random.randrange(0, (Npc2_hands+1))
+            NpcHand3 = random.randrange(0, (Npc3_hands+1))
+            NpcHand4 = random.randrange(0, (Npc4_hands+1))
+            NpcHand5 = random.randrange(0, (Npc5_hands+1))
             time.sleep(1.5)
             
             print(
             )
             if total_hand == user:
-                
+                user_hands -= 1
