@@ -2,14 +2,13 @@ import random, time
 
 # 代入
 E = 0
-Y = 0
 won = 0
 lose = 0
 draw = 0
 
 while True:
     print(
-        "japanise janken - python script",
+        "japanese janken - python script",
         "Select a number from the options below",
         "1 - gu",
         "2 - tyoki",
@@ -18,15 +17,11 @@ while True:
     )
 
     # input
-    try:
-        Y = int(input("Enter 3817 to exit >"))
-    except ValueError:
-        print("無効な数です。\n")
-        continue
-        
-    # 終了かどうかを調べる
-    if Y == 3817:
+    Y = input("Enter 'exit' to exit >")
+    if (Y == str) and (Y == "exit"):
         break
+    else:
+        Y = int(Y)
     
     # randomでのenemyの出し手を作成
     E = random.randrange(1, 4)
