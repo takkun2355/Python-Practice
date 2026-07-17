@@ -25,9 +25,13 @@ while True:
         print("終了します。")
         break
 
-    if Y == "exit":
-        print("終了します。")
-        break
+    # exitのいろいろな方法に対応（コードを長く読みにくくするゴミ）
+    if Y[0] == "E" or Y[0] == "e":
+        if Y[1] == "X" or Y[1] == "x":
+            if Y[2] == "I" or Y[2] == "i":
+                if Y[3] == "T" or Y[3] == "t":
+                    print("終了します")
+                    break
 
     # 変換
     match Y:
