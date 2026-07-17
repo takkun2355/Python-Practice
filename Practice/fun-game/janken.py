@@ -9,54 +9,82 @@ draw = 0
 while True:
     print(
         "japanese janken - python script",
-        "Select a number from the options below",
-        "1 - gu",
-        "2 - tyoki",
-        "3 - pa",
+        "以下の出し手から選択してください",
+        "`グー` or `gu`",
+        "`チョキ` or `tyoki`",
+        "`パー` or `pa`",
         sep="\n"
     )
 
     # input
-    Y = input("Enter 'exit' to exit >")
-    if (Y == str) and (Y == "exit"):
+    try:
+        Y = str(input("Enter `None` or `exit` to exit >"))
+
+    # 終了対応のif文
+    except ValueError:
+        print("終了します。")
         break
-    else:
-        Y = int(Y)
-    
+
+    if Y == "exit":
+        print("終了します。")
+        break
+
+    # 変換
+    match Y:
+        case "gu":
+            Y = "グー"
+        case "tyoki":
+            Y = "チョキ"
+        case "pa":
+            Y = "パー"
+        case _:
+            print("正確な文字を入力してください")
+            continue
+
     # randomでのenemyの出し手を作成
-    E = random.randrange(1, 4)
+    E = random.choice(["グー", "チョキ", "パー"])
     
     # 判定
-    if 1 <= Y <= 3:
-        if Y == E:
-            print("== draw ==")
-            draw += 1
-            H = "draw"
-        elif Y == 1 and E == 2 or Y == 2 and E == 3 or Y == 3 and E == 1:
-            print("== Your won ==")
-            won += 1
-            H = "won"
-        else:
-            print("== Enemy won ==")
-            lose += 1
-            H = "lose"
+
+    # 引き分け判定
+    if E == Y:
+        print("== draw ==")
+        draw += 1
+        H = "draw"
     else:
-        print("Exception Occurrence")
-        continue
-        
-    if Y == 1:
-        Y = "gu"
-    elif Y == 2:
-        Y = "tyoki"
-    else:
-        Y = "pa"
-    
-    if E == 3:
-        E = "pa"
-    elif E == 2:
-        E = "tyoki"
-    else:
-        E = "gu"
+        match Y:
+            # 勝ち判定 パイプを使用すると例外に通されるのでこうする
+            case "グー" if E == "チョキ":
+                print("== Your won ==")
+                won += 1
+                H = "won"
+            case "チョキ" if E == "パー":
+                print("== Your won ==")
+                won += 1
+                H = "won"
+            case "パー" if E == "グー":
+                print("== Your won ==")
+                won += 1
+                H = "won"
+            
+            # 負け判定 パイプを使用すると例外に通されるのでこうする
+            case "グー" if E == "パー":
+                print("== Enemy won ==")
+                lose += 1
+                H = "lose"
+            case "チョキ" if E == "グー":
+                print("== Enemy won ==")
+                lose += 1
+                H = "lose"
+            case "パー" if E == "チョキ":
+                print("== Enemy won ==")
+                lose += 1
+                H = "lose"
+
+            # 例外
+            case _:
+                print("Exception Occurrence")
+                continue
     
     print(
         " Your  - ", Y, "\n",
