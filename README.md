@@ -1,5 +1,7 @@
 # Python-Practice
 
+## 飽きた また今度いつかやります
+
 ## 目次
 
 - [Python-Practice](#python-practice)
